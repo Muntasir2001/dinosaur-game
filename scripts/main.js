@@ -1,3 +1,5 @@
+import { updateGround } from './ground';
+
 const WORLD_WIDTH = 100;
 const WORLD_HEIGHT = 30;
 
