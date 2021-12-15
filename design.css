@@ -29,14 +29,14 @@ body {
 
 .score {
 	position: absolute;
-	font-size: 1vmin;
+	font-size: 5vmin;
 	right: 1vmin;
 	top: 1vmin;
 }
 
 .start-screen {
 	position: absolute;
-	font-size: 5vmin;
+	font-size: 6vmin;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
@@ -45,7 +45,7 @@ body {
 .ground {
 	--left: 0;
 	position: absolute;
-	width: 300%;
+	width: 200%;
 	bottom: 0;
 	left: calc(var(--left) * 1%);
 }
