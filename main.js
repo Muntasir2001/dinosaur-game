@@ -4,9 +4,10 @@ const WORLD_HEIGHT = 30;
 const worldElement = document.querySelector('[data-world]');
 
 // setPixelToWorldScale();
+window.addEventListener('load', setPixelToWorldScale);
 window.addEventListener('resize', setPixelToWorldScale);
 
-function setPixelToWorldScale() {
+function setPixelToWorldScale(e) {
 	let worldToPixelScale;
 
 	if (window.innerWidth / window.innerHeight < WORLD_WIDTH / WORLD_HEIGHT) {
@@ -15,6 +16,6 @@ function setPixelToWorldScale() {
 		worldToPixelScale = window.innerHeight / WORLD_HEIGHT;
 	}
 
-	worldElement.style.width = `${WORLD_WIDTH * worldToPixelScale}`;
-	worldElement.style.height = `${WORLD_HEIGHT * worldToPixelScale}`;
+	worldElement.style.width = `${WORLD_WIDTH * worldToPixelScale}px`;
+	worldElement.style.height = `${WORLD_HEIGHT * worldToPixelScale}px`;
 }
