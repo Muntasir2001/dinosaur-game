@@ -17,9 +17,25 @@ let nextCactusTime;
 
 export function setupCactus() {
 	nextCactusTime = CACTUS_INTERVAL_MIN;
+
+	document.querySelectorAll('[data-cactus]').forEach((cactus) => {
+		cactus.remove();
+	});
 }
 
 export function updateCactus(delta, speedScale) {
+	document.querySelectorAll('[data-cactus]').forEach((cactus) => {
+		incrementCustomProperty(
+			cactus,
+			'--left',
+			delta * speedScale * SPEED * -1,
+		);
+
+		if (getCustomProperty(cactus, '--left') <= -100) {
+			cactus.remove();
+		}
+	});
+
 	if (nextCactusTime <= 0) {
 		createCactus();
 
@@ -31,8 +47,14 @@ export function updateCactus(delta, speedScale) {
 	nextCactusTime -= delta;
 }
 
+export function getCactusRects() {
+	return [...document.querySelectorAll('[data-cactus]')].map((cactus) => {
+		return cactus.getBoundingClientRect();
+	});
+}
+
 function createCactus() {
-	const cactus = document.createElement('div');
+	const cactus = document.createElement('img');
 	// allows you to select this element using dataset (for example [data-cactus])
 	cactus.dataset.cactus = true;
 	cactus.src = '../images/cactus.png';
@@ -40,4 +62,8 @@ function createCactus() {
 	setCustomProperty(cactus, '--left', 100);
 
 	world.append(cactus);
+}
+
+function randomNumberBetween(min, max) {
+	return Math.floor(Math.random() * (max - min + 1) + min);
 }
