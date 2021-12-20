@@ -9,7 +9,7 @@ const world = document.querySelector('[data-world]');
 // time in ms
 // half a second between cactuses is the minimum
 // max time is 2 seconds between the cactuses
-const CACTUS_INTERVAL_MIN = 500;
+const CACTUS_INTERVAL_MIN = 900;
 const CACTUS_INTERVAL_MAX = 2000;
 const SPEED = 0.05;
 
