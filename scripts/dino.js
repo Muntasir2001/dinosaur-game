@@ -7,7 +7,7 @@ import {
 const dino = document.querySelector('[data-dino]');
 
 const JUMP_SPEED = 0.45;
-const GRAVITY = 0.0015;
+const GRAVITY = 0.0018;
 const DINO_FRAME_COUNT = 2;
 const FRAME_TIME = 100; //every single frame of dino should last for 100 ms
 
@@ -33,6 +33,10 @@ export function updateDino(delta, speedScale) {
 	handleJump(delta);
 }
 
+export function setDinoLoose() {
+	dino.src = '../images/dino-lose.png';
+}
+
 /* for moving through different animations */
 function handleRun(delta, speedScale) {
 	if (isJumping) {
@@ -50,6 +54,10 @@ function handleRun(delta, speedScale) {
 	}
 
 	currentFrameTime += delta * speedScale;
+}
+
+export function getDinoRect() {
+	return dino.getBoundingClientRect();
 }
 
 function handleJump(delta) {
