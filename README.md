@@ -1,4 +1,4 @@
-# dinasaur-game
+# dinosaur-game
 
 A simple dinasaur game, replicated from Google Dinasaur game.
 
